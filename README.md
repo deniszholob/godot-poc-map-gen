@@ -1,10 +1,11 @@
-# Godot template_godot_project_name [Game](https://deniszholob.itch.io/template-godot-project)
+# POC Map Gen [Game](https://deniszholob.itch.io/godot-poc-map-gen)
 
-template_godot_project_description
+Proof of concept for chunk based map generation in Godot.  
+Similar to Minecraft or Factorio.
 
-> **Play it on [Itch.io](https://deniszholob.itch.io/template-godot-project)!**
+> **Play it on [Itch.io](https://deniszholob.itch.io/godot-poc-map-gen)!**
 
-## Deployments [![Build Status](https://github.com/deniszholob/template-godot-project/actions/workflows/deploy.yml/badge.svg)](https://github.com/deniszholob/template-godot-project/actions/workflows/deploy.yml)
+## Deployments [![Build Status](https://github.com/deniszholob/godot-poc-map-gen/actions/workflows/deploy.yml/badge.svg)](https://github.com/deniszholob/godot-poc-map-gen/actions/workflows/deploy.yml)
 
 - See [Contributing](./CONTRIBUTING.md) for technical details.
 - See [Assets Readme](./assets/README.md) for asset details.
@@ -18,4 +19,4 @@ If you find the cheat sheet or the source code useful, consider:
 
 # Screenshots
 
-![template_godot_project_name](.screenshots/template-godot-project.png)
+![POC Map Gen](.screenshots/godot-poc-map-gen.png)

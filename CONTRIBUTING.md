@@ -1,6 +1,6 @@
 # To contribute
 
-**If you are working on an [existing issue](https://github.com/deniszholob/template-godot-project/issues), please claim it with your comment, so there is no duplicate work.**
+**If you are working on an [existing issue](https://github.com/deniszholob/godot-poc-map-gen/issues), please claim it with your comment, so there is no duplicate work.**
 
 ## What you will need before you begin:
 1. Ensure that [Godot](https://godotengine.org/) is installed
@@ -23,4 +23,4 @@ There is a [recommended extension](.vscode/extensions.json) `adrianwilczynski.to
 - The [components](./components/) folder contains reusable scripts that can be added to various nodes
 
 # Build + Publish to Itch.io
-Manually trigger [Github Deploy Action](https://github.com/deniszholob/template-godot-project/actions/workflows/deploy.yml) when you want to deploy a new version to itch.io.
+Manually trigger [Github Deploy Action](https://github.com/deniszholob/godot-poc-map-gen/actions/workflows/deploy.yml) when you want to deploy a new version to itch.io.
