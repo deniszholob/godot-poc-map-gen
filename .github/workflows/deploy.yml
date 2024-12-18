@@ -1,0 +1,114 @@
+name: Deploy to Itch.io
+
+# Manually trigger by going to this workflow in the repository actions tab
+on: workflow_dispatch
+
+env:
+  BUTLER_API_KEY: ${{secrets.ITCHIO_API_KEY}} # Repository Settings -> Secrets and variables -> Actions -> New repository secret
+  ITCHIO_USERNAME: ${{secrets.ITCHIO_USERNAME}}
+  PROJECT_NAME: "godot-poc-minecart-tile-movement" # See README.md about project, channel, and export file naming conventions
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Get Godot Version
+        run: echo "GODOT_VERSION=$(grep '^config/features' project.godot | cut -d "\"" -f 2)" >> $GITHUB_ENV
+
+      # Cache Godot Application
+      - name: Cache Godot
+        id: cache-godot
+        uses: actions/cache@v4
+        with:
+          path: ./godot
+          key: godot-${{ env.GODOT_VERSION }}
+
+      - name: Download Godot (if cache miss)
+        if: steps.cache-godot.outputs.cache-hit != 'true'
+        run: |
+          echo "Downloading Godot..."
+          curl -L -o godot.zip https://downloads.tuxfamily.org/godotengine/$GODOT_VERSION/Godot_v$GODOT_VERSION-stable_linux.x86_64.zip
+          unzip godot.zip
+          mv Godot_v$GODOT_VERSION-stable_linux.x86_64 godot
+          chmod +x godot
+
+      # Cache Godot Export Templates
+      - name: Set Up Templates Cache Directory
+        run: mkdir -p godot-templates
+
+      - name: Cache Godot Export Templates
+        id: cache-templates
+        uses: actions/cache@v4
+        with:
+          path: godot-templates
+          key: godot-export-templates-${{ env.GODOT_VERSION }}
+
+      - name: Download Godot Export Templates (if cache miss)
+        if: steps.cache-templates.outputs.cache-hit != 'true'
+        run: |
+          echo "Downloading Export Templates..."
+          curl -L -o export_templates.zip https://downloads.tuxfamily.org/godotengine/$GODOT_VERSION/Godot_v$GODOT_VERSION-stable_export_templates.tpz
+          unzip export_templates.zip -d godot-templates
+
+      - name: Copy Templates to Godot Directory
+        run: |
+          mkdir -p ~/.local/share/godot/export_templates/$GODOT_VERSION.stable
+          cp -r godot-templates/templates/* ~/.local/share/godot/export_templates/$GODOT_VERSION.stable
+
+      - name: Prepare Export Directory
+        run: mkdir -p .exports/html
+
+      - name: Build
+        run: |
+          ./godot --headless --export-release html
+          echo "Exported files:"
+          ls -R .exports
+        #   ./godot --headless --export-release linux
+        #   ./godot --headless --export-release macos
+        #   ./godot --headless --export-release windows
+
+      - name: Zip HTML Export
+        run: |
+          cd .exports/html
+          zip $PROJECT_NAME-html.zip -r -m *
+          mv $PROJECT_NAME-html.zip ..
+          cd -
+          echo "Contents of .exports:"
+          ls -R .exports
+
+      - name: Save Artifacts for Next Job
+        uses: actions/upload-artifact@v4
+        with:
+          name: exports
+          path: .exports/
+          include-hidden-files: true # .exports folder is treated as hidden
+
+  Publish:
+    needs: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: exports
+          path: exports
+
+      - name: Download Butler
+        run: |
+          curl -L -o butler.zip https://broth.itch.ovh/butler/linux-amd64/LATEST/archive/default
+          unzip butler.zip
+          chmod +x butler
+          ./butler -V
+
+      - name: Login To Butler
+        run: ./butler login
+
+      - name: Push To Itch
+        run: |
+          ./butler push ./exports/$PROJECT_NAME-html.zip $ITCHIO_USERNAME/$PROJECT_NAME:html
+        #   ./butler push ./exports/$PROJECT_NAME-linux.zip $ITCHIO_USERNAME/$PROJECT_NAME:linux
+        #   ./butler push ./exports/$PROJECT_NAME-macos.zip $ITCHIO_USERNAME/$PROJECT_NAME:mac
+        #   ./butler push ./exports/$PROJECT_NAME-windows.exe $ITCHIO_USERNAME/$PROJECT_NAME:windows

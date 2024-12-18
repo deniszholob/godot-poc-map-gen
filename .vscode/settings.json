@@ -1,0 +1,99 @@
+{
+    "angular-files-generator.customTemplateFolder": ".vscode/ngfg-templates",
+    "angular-files-generator.useOnlyCustomTemplates": true,
+    "godotTools.editorPath.godot4": "/var/lib/flatpak/exports/bin/org.godotengine.Godot",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.renderWhitespace": "all",
+    "editor.rulers": [80, 100],
+    "explorer.sortOrderLexicographicOptions": "lower", // Case sensitive file ordering in tree
+    // Editor Icon Theme
+    "workbench.iconTheme": "material-icon-theme",
+    "material-icon-theme.folders.associations": {
+      "workflows": "github",
+      "models": "mjml"
+    },
+    "material-icon-theme.folders.customClones": [
+        {
+            "name": "components",
+            "folderNames": ["components"],
+            "base": "components",
+            "color": "blue-800"
+        },
+        {
+            "name": "scenes",
+            "folderNames": ["scenes"],
+            "base": "components",
+            "color": "purple-400"
+        },
+        {
+            "name": "levels",
+            "folderNames": ["levels"],
+            "base": "components",
+            "color": "pink-400"
+        },
+    ],
+    "material-icon-theme.files.customClones": [
+        {
+            "name": "gd-scene",
+            "fileExtensions": ["tscn"],
+            "base": "godot",
+            "color": "purple-300"
+        },
+        {
+            "name": "gd-component",
+            "fileExtensions": ["component.gd"],
+            "base": "godot",
+            "color": "blue-700"
+        },
+        {
+            "name": "gd-service",
+            "fileExtensions": ["service.gd"],
+            "base": "godot",
+            "color": "yellow-600"
+        },
+        {
+            "name": "gd-model",
+            "fileExtensions": ["model.gd"],
+            "base": "godot",
+            "color": "red-400"
+        },
+        {
+            "name": "gd-enum",
+            "fileExtensions": ["enum.gd"],
+            "base": "godot",
+            "color": "teal-400"
+        },
+        {
+            "name": "gd-util",
+            "fileExtensions": ["util.gd"],
+            "base": "godot",
+            "color": "light-green-500"
+        },
+        {
+            "name": "gd-data",
+            "fileExtensions": ["data.tres", "tres"],
+            "base": "godot",
+            "color": "yellow-400"
+        }
+    ],
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.exclude": {
+        "**/*.dev": true,
+        "**/*.github": true,
+        "**/*.godot": true,
+        "**/*.exports": true,
+        "**/*.import": true,
+        "**/*.screenshots": true,
+        "**/dist/": true,
+        "**/.editorconfig": true,
+        "**/.gitattributes": true,
+        "**/.gitignore": true,
+        "**/.gitkeep": true,
+        "**/export_presets.cfg": true,
+        "**/.gitlab-ci.yml": true,
+        "**/FUNDING.yml": true,
+        "**/LICENSE": true
+    },
+    "cSpell.words": []
+}

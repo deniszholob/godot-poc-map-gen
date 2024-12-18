@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "geequlim.godot-tools",
+    "alfish.godot-files",
+    "aaron-bond.better-comments",
+    "streetsidesoftware.code-spell-checker",
+    "razoric.gdscript-toolkit-formatter",
+    "pkief.material-icon-theme",
+    "medo64.render-crlf",
+    "gruntfuggly.todo-tree"
+  ]
+}

@@ -1,0 +1,29 @@
+# Instructions
+
+- [x] Create new repo from this template repo: https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template
+- [ ] Clone to your machine
+- [ ] Change the [License](./LICENSE)
+  - https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository
+  - https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository
+- [ ] TOGGLE HIDDEN FILES with the `adrianwilczynski.toggle-hidden` extension (To make sure all are visible)
+- [ ] Replace `template-godot-project` with your project `dashed-name`
+- [ ] Replace `template_godot_project_name` with your `Project Name`
+- [ ] Replace `template_godot_project_description` with your `Project Description`
+- [ ] Replace `https://deniszholob.itch.io/template-godot-project` with your project deployment url
+- [ ] Replace `https://github.com/deniszholob/template-godot-project` with your project repository
+- [ ] Replace `"ddd", "sandbox"` with your project tags
+- [ ] Replace the [icon](./icon.svg) with your own and update the [project.godot](./project.godot)
+- [ ] Code your game
+- [ ] Add/Replace screenshots in [screenshots](.screenshots) folder and update [readme](./README.md)
+- [ ] Push code to github (without this file)
+- [ ] Create a new project on Itch.io
+  - [ ] Make sure the url is matching this repo: `template-godot-project`
+  - [ ] Copy the same name/description/screenshots, etc.
+  - [ ] Select `HTML` for "Kind of project"
+  - [ ] Select SharedArrayBuffer support.
+- [ ] Add url to About section
+  - On the main repo code page
+  - Under About settings on the right, click the gear icon
+  - For website check the "Use your GitHub Pages website"
+-  [ ] Manually trigger [Github Deploy Action](https://github.com/deniszholob/godot-poc-map-gen/actions/workflows/deploy.yml) when you want to deploy a new version to itch.io.
+- [ ] Delete this file INSTRUCTIONS.md
