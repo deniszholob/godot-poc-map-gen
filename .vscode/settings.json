@@ -79,21 +79,20 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.exclude": {
-        "**/*.dev": true,
-        "**/*.github": true,
-        "**/*.godot": true,
-        "**/*.exports": true,
-        "**/*.import": true,
-        "**/*.screenshots": true,
-        "**/dist/": true,
+        ".dev": true,
+        ".github": true,
+        ".godot": true,
+        ".exports": true,
+        ".screenshots": true,
+        "export_presets.cfg": true,
+        "FUNDING.yml": true,
+        "LICENSE": true,
         "**/.editorconfig": true,
         "**/.gitattributes": true,
         "**/.gitignore": true,
         "**/.gitkeep": true,
-        "**/export_presets.cfg": true,
         "**/.gitlab-ci.yml": true,
-        "**/FUNDING.yml": true,
-        "**/LICENSE": true
+        "**/*.import": true
     },
     "cSpell.words": []
 }

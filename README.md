@@ -1,7 +1,7 @@
 # POC Map Gen [Game](https://deniszholob.itch.io/godot-poc-map-gen)
 
-Proof of concept for chunk based map generation in Godot.  
-Similar to Minecraft or Factorio.
+Proof of concept for chunk based map generation in Godot. Similar to Minecraft or Factorio.  
+Also POC of Smooth Camera zoom for woth mouse and controller.
 
 > **Play it on [Itch.io](https://deniszholob.itch.io/godot-poc-map-gen)!**
 

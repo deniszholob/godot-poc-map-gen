@@ -1,15 +1,17 @@
 extends CharacterBody2D
 
+#region @export
 @export
-var WALK_SPEED: int = 100.0
+var WALK_SPEED: int = 100
 @export
 var RUN_SPEED: int = WALK_SPEED * 3
+#endregion
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+#region var
 var input: int = 2
+#endregion
 
+#region func: Overrides
 func _physics_process(_delta):
 	#var input_switch := Input.is_action_just_pressed('option');
 	#if(input_switch):
@@ -24,7 +26,9 @@ func _physics_process(_delta):
 		#3:
 			#read_input3()
 	read_input2()
+#endregion
 
+#region func: Private
 func read_input3():
 	var input_dir := Input.get_vector("move_left","move_right","move_up","move_down")
 	var desired_velocity := input_dir * WALK_SPEED
@@ -57,3 +61,4 @@ func read_input():
 		velocity.x = move_toward(velocity.x, 0, WALK_SPEED)
 
 	move_and_slide()
+#endregion
